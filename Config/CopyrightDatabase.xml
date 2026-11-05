@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CopyrightDatabase>
+  <SafeLabels>
+    <Label>NoCopyrightSounds</Label>
+    <Label>NCS</Label>
+    <Label>Monstercat Gold</Label>
+    <Label>Epidemic Sound</Label>
+    <Label>Artlist</Label>
+    <Label>Streambeats</Label>
+    <Label>Harris Heller</Label>
+    <Label>Lofi Girl</Label>
+  </SafeLabels>
+
+  <SafeLicenses>
+    <License>Creative Commons CC0</License>
+    <License>CC BY 4.0</License>
+    <License>Royalty Free Stream Allowed</License>
+  </SafeLicenses>
+
+  <UnsafePublishers>
+    <Publisher>Universal Music Group</Publisher>
+    <Publisher>Sony Music Entertainment</Publisher>
+    <Publisher>Warner Music Group</Publisher>
+    <Publisher>Atlantic Records</Publisher>
+    <Publisher>Columbia Records</Publisher>
+    <Publisher>Republic Records</Publisher>
+  </UnsafePublishers>
+</CopyrightDatabase>

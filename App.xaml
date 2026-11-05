@@ -1,0 +1,16 @@
+<Application x:Class="StreamMusicAIManager.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Futuristic Gaming Dark Palette -->
+        <SolidColorBrush x:Key="BgDark" Color="#0F111A"/>
+        <SolidColorBrush x:Key="CardDark" Color="#1E202E"/>
+        <SolidColorBrush x:Key="AccentCyan" Color="#00F2FE"/>
+        <SolidColorBrush x:Key="AccentPurple" Color="#9D4EDD"/>
+        <SolidColorBrush x:Key="TextWhite" Color="#F8F9FA"/>
+        <SolidColorBrush x:Key="TextMuted" Color="#8F9BBA"/>
+        <SolidColorBrush x:Key="SafeGreen" Color="#2ECC71"/>
+        <SolidColorBrush x:Key="UnsafeRed" Color="#E74C3C"/>
+    </Application.Resources>
+</Application>

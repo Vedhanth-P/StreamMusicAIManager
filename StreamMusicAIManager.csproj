@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <AssemblyName>StreamMusicAIManager</AssemblyName>
+    <RootNamespace>StreamMusicAIManager</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.104.2" />
+    <PackageReference Include="Dapper" Version="2.1.66" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.10" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="TagLibSharp" Version="2.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Config\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

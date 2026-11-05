@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+  <StorageSettings>
+    <TargetRootPath>C:\StreamMusicLibrary</TargetRootPath>
+    <AutoMoveFiles>true</AutoMoveFiles>
+    <PreserveOriginals>false</PreserveOriginals>
+  </StorageSettings>
+
+  <Performance>
+    <MaxDegreeOfParallelism>8</MaxDegreeOfParallelism>
+    <ChannelBufferSize>5000</ChannelBufferSize>
+    <BatchDatabaseInsertSize>100</BatchDatabaseInsertSize>
+  </Performance>
+
+  <CategorizationRules>
+    <Category name="PvP_Hype">
+      <MinEnergy>75</MinEnergy>
+      <MinBpm>125</MinBpm>
+      <Genres>
+        <Genre>EDM</Genre>
+        <Genre>Phonk</Genre>
+        <Genre>Drum and Bass</Genre>
+        <Genre>DnB</Genre>
+        <Genre>Aggressive Electronic</Genre>
+        <Genre>Hardstyle</Genre>
+      </Genres>
+    </Category>
+    <Category name="Gameplay_Energy">
+      <MinEnergy>45</MinEnergy>
+      <MaxEnergy>74</MaxEnergy>
+      <MinBpm>100</MinBpm>
+      <MaxBpm>124</MaxBpm>
+      <Genres>
+        <Genre>Future Bass</Genre>
+        <Genre>Electronic</Genre>
+        <Genre>Synthwave</Genre>
+        <Genre>Gaming Music</Genre>
+        <Genre>Chiptune</Genre>
+      </Genres>
+    </Category>
+    <Category name="Victory_Moments">
+      <MinEnergy>60</MinEnergy>
+      <MinBpm>110</MinBpm>
+      <Genres>
+        <Genre>Epic</Genre>
+        <Genre>Motivational</Genre>
+        <Genre>Celebration</Genre>
+        <Genre>Cinematic</Genre>
+        <Genre>Orchestral</Genre>
+      </Genres>
+    </Category>
+    <Category name="Lobby_Chill">
+      <MinEnergy>0</MinEnergy>
+      <MaxEnergy>44</MaxEnergy>
+      <MinBpm>0</MinBpm>
+      <MaxBpm>99</MaxBpm>
+      <Genres>
+        <Genre>Chill Electronic</Genre>
+        <Genre>Ambient</Genre>
+        <Genre>Relaxed Synthwave</Genre>
+        <Genre>Lo-Fi</Genre>
+        <Genre>Downtempo</Genre>
+      </Genres>
+    </Category>
+  </CategorizationRules>
+
+  <MegaPlaylistDistribution>
+    <Ratio category="Gameplay_Energy">0.60</Ratio>
+    <Ratio category="PvP_Hype">0.25</Ratio>
+    <Ratio category="Victory_Moments">0.10</Ratio>
+    <Ratio category="Lobby_Chill">0.05</Ratio>
+  </MegaPlaylistDistribution>
+
+  <ObsIntegration>
+    <WebSocketUrl>ws://localhost:4455</WebSocketUrl>
+    <Password>StreamSafePass123</Password>
+    <AutoSwitchMediaSource>true</AutoSwitchMediaSource>
+    <MediaSourceName>StreamBGM</MediaSourceName>
+  </ObsIntegration>
+</Configuration>

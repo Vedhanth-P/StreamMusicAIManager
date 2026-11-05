@@ -1,0 +1,95 @@
+<Window x:Class="StreamMusicAIManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Stream Music AI Manager" Width="1280" Height="760"
+        MinWidth="960" MinHeight="600" Background="{StaticResource BgDark}"
+        Foreground="{StaticResource TextWhite}"
+        AllowDrop="True"
+        Drop="OnDrop"
+        DragOver="OnDragOver">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource TextWhite}"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Padding" Value="12,7"/>
+            <Setter Property="Background" Value="{StaticResource CardDark}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextWhite}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource AccentCyan}"/>
+        </Style>
+        <Style TargetType="DataGridRow">
+            <Setter Property="Background" Value="{StaticResource CardDark}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextWhite}"/>
+        </Style>
+        <Style TargetType="DataGridCell">
+            <Setter Property="Foreground" Value="{StaticResource TextWhite}"/>
+            <Setter Property="Background" Value="{StaticResource CardDark}"/>
+            <Setter Property="Padding" Value="6,4"/>
+        </Style>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Foreground" Value="{StaticResource TextMuted}"/>
+            <Setter Property="Background" Value="{StaticResource BgDark}"/>
+            <Setter Property="Padding" Value="4,3"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="18">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Margin="0,0,0,14">
+            <TextBlock Text="STREAM MUSIC" FontSize="26" FontWeight="Bold" Foreground="{StaticResource AccentCyan}"/>
+            <TextBlock Text="  AI MANAGER" FontSize="26" FontWeight="Bold" Foreground="{StaticResource AccentPurple}"/>
+            <TextBlock DockPanel.Dock="Right" Text="{Binding StatusMessage}" VerticalAlignment="Center" Foreground="{StaticResource TextMuted}"/>
+        </DockPanel>
+        <UniformGrid Grid.Row="1" Columns="5" Margin="0,0,0,14">
+            <Border Background="{StaticResource CardDark}" Padding="12" Margin="3"><StackPanel><TextBlock Text="TRACKS" Foreground="{StaticResource TextMuted}"/><TextBlock Text="{Binding TotalSongs}" FontSize="24" FontWeight="Bold"/></StackPanel></Border>
+            <Border Background="{StaticResource CardDark}" Padding="12" Margin="3"><StackPanel><TextBlock Text="SAFE" Foreground="{StaticResource SafeGreen}"/><TextBlock Text="{Binding SafeSongs}" FontSize="24" FontWeight="Bold"/></StackPanel></Border>
+            <Border Background="{StaticResource CardDark}" Padding="12" Margin="3"><StackPanel><TextBlock Text="REVIEW / UNSAFE" Foreground="{StaticResource UnsafeRed}"/><TextBlock Text="{Binding UnsafeSongs}" FontSize="24" FontWeight="Bold"/></StackPanel></Border>
+            <Border Background="{StaticResource CardDark}" Padding="12" Margin="3"><StackPanel><TextBlock Text="DUPLICATES" Foreground="{StaticResource AccentPurple}"/><TextBlock Text="{Binding DuplicatesRemoved}" FontSize="24" FontWeight="Bold"/></StackPanel></Border>
+            <Border Background="{StaticResource CardDark}" Padding="12" Margin="3"><StackPanel><TextBlock Text="PROGRESS" Foreground="{StaticResource TextMuted}"/><ProgressBar Value="{Binding ProgressValue}" Maximum="100" Height="18" Margin="0,8,0,0"/></StackPanel></Border>
+        </UniformGrid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="2.2*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Background="{StaticResource CardDark}" Padding="8" Margin="0,0,8,0">
+                <DataGrid ItemsSource="{Binding Tracks}" AutoGenerateColumns="False" IsReadOnly="True"
+                          Background="{StaticResource CardDark}" Foreground="{StaticResource TextWhite}"
+                          RowBackground="{StaticResource CardDark}" AlternatingRowBackground="#292C3D"
+                          HeadersVisibility="Column" GridLinesVisibility="Horizontal"
+                          BorderThickness="0" HorizontalGridLinesBrush="#3A3D52">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="2*"/>
+                        <DataGridTextColumn Header="Artist" Binding="{Binding Artist}" Width="*"/>
+                        <DataGridTextColumn Header="BPM" Binding="{Binding Bpm, StringFormat=F0}" Width="65"/>
+                        <DataGridTextColumn Header="Energy" Binding="{Binding EnergyScore, StringFormat=F0}" Width="65"/>
+                        <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="*"/>
+                        <DataGridTextColumn Header="Copyright" Binding="{Binding CopyrightStatus}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+            <Border Grid.Column="1" Background="{StaticResource CardDark}" Padding="14">
+                <StackPanel>
+                    <TextBlock Text="STREAM MODE" FontSize="16" FontWeight="Bold" Foreground="{StaticResource AccentCyan}" Margin="0,0,0,10"/>
+                    <WrapPanel>
+                        <Button Content="PvP Hype" Command="{Binding SwitchStreamModeCommand}" CommandParameter="PvP_Hype"/>
+                        <Button Content="Gameplay" Command="{Binding SwitchStreamModeCommand}" CommandParameter="Gameplay_Energy"/>
+                        <Button Content="Victory" Command="{Binding SwitchStreamModeCommand}" CommandParameter="Victory_Moments"/>
+                        <Button Content="Lobby" Command="{Binding SwitchStreamModeCommand}" CommandParameter="Lobby_Chill"/>
+                    </WrapPanel>
+                    <TextBlock Text="ACTIVITY" FontSize="16" FontWeight="Bold" Foreground="{StaticResource AccentCyan}" Margin="0,18,0,8"/>
+                    <ListBox ItemsSource="{Binding ActivityLogs}" Background="{StaticResource BgDark}"
+                             Foreground="{StaticResource TextMuted}" BorderThickness="0" Height="300"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <DockPanel Grid.Row="3" Margin="0,14,0,0">
+            <Button Content="Import Library" Command="{Binding ImportCommand}"/>
+            <Button Content="Show Overlay" Click="ShowOverlay_Click"/>
+            <Button Content="Export Report" Command="{Binding ExportReportCommand}"/>
+            <TextBlock Text="Drop audio folders or archives through Import Library. External services are optional." VerticalAlignment="Center" Foreground="{StaticResource TextMuted}" Margin="12,0"/>
+        </DockPanel>
+    </Grid>
+</Window>

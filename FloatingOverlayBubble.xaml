@@ -1,0 +1,24 @@
+<Window x:Class="StreamMusicAIManager.FloatingOverlayBubble"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        ShowInTaskbar="False" Topmost="True" SizeToContent="WidthAndHeight"
+        MouseLeftButtonDown="OnMouseLeftButtonDown">
+    <Border Background="#E51A1E2B" BorderBrush="#FF00F2FE" BorderThickness="1"
+            CornerRadius="18" Padding="10">
+        <StackPanel>
+            <TextBlock Text="STREAM MODES" Foreground="#FF00F2FE" FontWeight="Bold"
+                       HorizontalAlignment="Center" Margin="0,0,0,6"/>
+            <UniformGrid Columns="2">
+                <Button Content="⚡ PvP Hype" Command="{Binding SwitchStreamModeCommand}"
+                        CommandParameter="PvP_Hype" Margin="3"/>
+                <Button Content="🎮 Gameplay" Command="{Binding SwitchStreamModeCommand}"
+                        CommandParameter="Gameplay_Energy" Margin="3"/>
+                <Button Content="🏆 Victory" Command="{Binding SwitchStreamModeCommand}"
+                        CommandParameter="Victory_Moments" Margin="3"/>
+                <Button Content="☕ Lobby" Command="{Binding SwitchStreamModeCommand}"
+                        CommandParameter="Lobby_Chill" Margin="3"/>
+            </UniformGrid>
+        </StackPanel>
+    </Border>
+</Window>
